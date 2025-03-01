@@ -15,6 +15,7 @@ public:
 	void push();
     void pop();
 	void display();
+	void peek();
 
 };
 void Stack::push() {
@@ -47,15 +48,30 @@ void Stack::pop() {
 }
 void Stack::display() {
 	// poping up all the element from the stack
+	if (top == -1)
+	{
+		cout << "Stack is empty!" << endl;
+
+	}
+	else {
 
 			cout << "Element in the stack are = ";
 			for (int  i = top; i > -1 ; i--)
 			{
 
 				cout << stk[i] << " ";
+				top--;
 			}
+	}
 }
-
+void Stack::peek() {
+	if (top == -1)
+	{
+		cout << "Stack is empty!" << endl;
+		return;
+	}
+	cout << "The top element of the stack is:" << stk[top] << endl;
+}
 int main()
 {
 	Stack stk;
@@ -68,6 +84,7 @@ int main()
         cout << "1. Push the element in the stack." << endl;
         cout << "2. Pop the single element from the stack." << endl;
         cout << "3. Pop all the element from the stack." << endl;
+        cout << "4. Peek the top element from the stack." << endl;
         cout << "5. To exit." << endl;
 
         cout << endl;
@@ -82,7 +99,10 @@ int main()
             stk.pop();
             break;
 		case 3:
-            stk.pop();
+            stk.display();
+            break;
+		case 4:
+            stk.peek();
             break;
       
 
