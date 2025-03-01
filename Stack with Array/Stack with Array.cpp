@@ -11,37 +11,50 @@ protected:
 	int stk[MAX], top = -1;
 
 public:
-	void push() {
-		if (top == MAX - 1)
-		{
-			cout << "Stack is Full!" << endl;
-		}
-		else
-		{
-			int x;
-			cout << "Enter the Number you want to Push: ";
-			cin >> x;
-			stk[++top] = x;
-		}
+
+	void push();
+    void pop();
+	void display();
+
+};
+void Stack::push() {
+	if (top == MAX - 1)
+	{
+		cout << "Stack is Full!" << endl;
 	}
-	void pop() {
-		if (top == -1)
-		{
-			cout << "Stack is empty!" << endl;
-		}
-		else
-		{	
+	else
+	{
+		int x;
+		cout << "Enter the Number you want to Push: ";
+		cin >> x;
+		stk[++top] = x;
+	}
+}
+void Stack::pop() {
+	if (top == -1)
+	{
+		cout << "Stack is empty!" << endl;
+	}
+	else
+	{
+	
+
+		// poping up the single emement from the stack
+
+		cout << "Poped Element of the Stack: ";
+		cout << stk[top--];
+	}
+}
+void Stack::display() {
+	// poping up all the element from the stack
+
 			cout << "Element in the stack are = ";
 			for (int  i = top; i > -1 ; i--)
 			{
 
 				cout << stk[i] << " ";
 			}
-
-		}
-	}
-
-};
+}
 
 int main()
 {
@@ -53,7 +66,8 @@ int main()
         cout << endl;
         cout << "**************Main Menu****************" << endl;
         cout << "1. Push the element in the stack." << endl;
-        cout << "2. Pop the element from the stack." << endl;
+        cout << "2. Pop the single element from the stack." << endl;
+        cout << "3. Pop all the element from the stack." << endl;
         cout << "5. To exit." << endl;
 
         cout << endl;
@@ -65,6 +79,9 @@ int main()
 			stk.push();
             break;
         case 2:
+            stk.pop();
+            break;
+		case 3:
             stk.pop();
             break;
       
